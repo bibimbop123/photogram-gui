@@ -1,3 +1,4 @@
+
 <h1><%= @the_user.username %> </h1>
 
 <dl>
@@ -20,10 +21,10 @@
 <% @the_user.own_photos.each do |a_photo|%>
     <tr>
    <td><img src="<%= a_photo.image %>"> </td>
-   <td><%= a_photo.owner_id %> </td>
+   <td><%= a_photo.poster.username %> </td>
    <td><%= a_photo.caption %></td>
    <td><%= a_photo.created_at %> </td>
-   <td>Show Details </td>
+   <td>Show details </td>
   </tr>
   <%end%>
 </table>
