@@ -13,4 +13,12 @@ class UsersController < ApplicationController
       render ({:template =>"user_templates/show"})
 
   end
+  def update
+    the_id = params.fetch("user_id")
+    matching_users = User.where({:id => the_id})
+    the_user = matching_users.first
+
+    the_user.username = params.fetch("input_username")
+    redirect_to("/users")
+  end
 end

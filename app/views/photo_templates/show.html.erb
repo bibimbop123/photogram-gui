@@ -5,7 +5,7 @@
     Image
   </dt>
   <dd>
-    <img src="<%= @the_photo.image%>" height="300px">
+    <img src="<%= @the_photo.image %>" height="300px">
   </dd>
 
   <dt>
@@ -13,7 +13,7 @@
   </dt>
   <dd>
     <p>
-      Once you’ve accepted your flaws, no one can use them against you.
+     <%= @the_photo.caption%>
     </p>
   </dd>
 
@@ -39,8 +39,8 @@
       <label for="browser_image">Image</label>
       <input id="browser_image" type="text" name="input_image" placeholder="Enter a URL for the image..." value=https://robohash.org/dolorehicincidunt.png?size=300x300&amp;set=set1>
 
-      <label for="browser_caption">Caption</label>
-      <textarea id="browser_caption" name="input_caption" placeholder="Enter a caption for the photo...">Once you’ve accepted your flaws, no one can use them against you.</textarea>
+      <label for="input_caption">Caption</label>
+      <textarea id="input_caption" name="input_caption" placeholder="Enter a caption for the photo...">Once you’ve accepted your flaws, no one can use them against you.</textarea>
 
       <button>Update photo</button>
     </form>
