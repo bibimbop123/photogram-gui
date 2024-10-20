@@ -37,14 +37,30 @@ class PhotosController < ApplicationController
 end
 
 def update
-the_id = params.fetch(":modify_id")
+the_id = params.fetch("photo_id")
 matching_photos = Photo.where({ :id => the_id})
 the_photo = matching_photos.at(0)
 the_photo.image = params.fetch("input_image")
 the_photo.caption = params.fetch("input_caption")
-the_photo.owner_id = params.fetch("input_owner_id")
+
 the_photo.save
 
-redirect_to("/photos")
+redirect_to("/photos/"+ the_photo.id.to_s)
+end
+
+def add_comment
+  input_photo_id = params.fetch("input_photo_id")
+  input_author_id = params.fetch("input_author_id")
+  input_comment = params.fetch("input_comment")
+  
+   a_new_comment = Comment.new
+   a_new_comment.photo_id = input_photo_id
+   a_new_comment.author_id = input_author_id
+   a_new_comment.body = input_comment
+   a_new_comment.save
+   
+  
+   redirect_to("/photos/#{a_new_comment.photo_id}")
+
 end
 end
